@@ -1,0 +1,12 @@
+# Ignoring directories
+.idea/
+__pycache__/
+venv/
+
+# Ignoring files
+*.pyc
+*.log
+.DS_Store
+
+# Ignoring config files
+*.iml

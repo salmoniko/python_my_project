@@ -95,7 +95,7 @@ class CheckoutPage(Base):
                     EC.visibility_of_element_located((By.XPATH, self.shipping_address_title)))
             except TimeoutException:
                 print("Name field is not displayed")
-        time.sleep(1)
+        time.sleep(1)  #  в данном месте оставила тайм слип, так как даже при учете использования исключений, данная ошибка иногда снова появляется
 
     def input_first_name(self):  # Input first name
         first_name = self.fake.first_name()
@@ -136,12 +136,10 @@ class CheckoutPage(Base):
     def click_shipping_method(self):  # Click go to shipping button
         self.get_shipping_method().click()
         print('Shipping method is clicked')
-        # time.sleep(2)
 
     def click_standard_delivery_radio(self):  # Click go to shipping button
         self.get_standard_delivery_radio().click()
         print('Standard shipping is chosen')
-        # time.sleep(2)
 
     def click_continue_billing_button(self):  # Click go to continue billing button button
         self.get_continue_billing_button().click()
