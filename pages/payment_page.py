@@ -8,6 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
 from faker import Faker
 
+from utilities.logger import Logger
+
 
 class PaymentPage(Base):
     def __init__(self, driver):
@@ -78,6 +80,7 @@ class PaymentPage(Base):
     # Methods
 
     def final_payment(self):
+        Logger.add_start_step(method='final_payment')
         self.get_current_url()
         self.click_credit_card_radio()  # choosing payment by credit card
         self.scroll_page(200)  # scrolling page down by 200 pixels
@@ -86,3 +89,4 @@ class PaymentPage(Base):
         # self.input_expiry_date()  # не получается ввести данные в поля для оплаты картой
         # self.input_cvv_field()
         # self.input_name_card()
+        Logger.add_end_step(url=self.driver.get_current_url, method='final_payment')

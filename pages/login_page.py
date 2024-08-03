@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
+from utilities.logger import Logger
 
 
 class LoginPage(Base):
@@ -89,6 +90,7 @@ class LoginPage(Base):
     # Methods
 
     def authorization(self):
+        Logger.add_start_step(method='authorization')
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
@@ -98,8 +100,10 @@ class LoginPage(Base):
         self.click_sign_in_button()  # clicking sign in button to confirm log in
         self.click_account_button()  # clicking on my profile button to see log out button is displayed
         self.assertion_login()  # verifying log out button is displayed
+        Logger.add_end_step(url=self.driver.get_current_url, method='authorization')
 
     def auth_invalid_password(self):
+        Logger.add_start_step(method='auth_invalid_password')
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
@@ -108,8 +112,10 @@ class LoginPage(Base):
         self.input_password('WrongPassword123')  # inputting wrong password
         self.click_sign_in_button()  # clicking sign in button to confirm log in
         self.assertion_error_message_1()  # asserting that log in is unsuccessful
+        Logger.add_end_step(url=self.driver.get_current_url, method='auth_invalid_password')
 
     def auth_invalid_login(self):
+        Logger.add_start_step(method='auth_invalid_login')
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
@@ -118,8 +124,10 @@ class LoginPage(Base):
         self.input_password('Lightpass123')  # inputting password
         self.click_sign_in_button()  # clicking sign in button to confirm log in
         self.assertion_error_message_1()  # asserting that log in is unsuccessful
+        Logger.add_end_step(url=self.driver.get_current_url, method='auth_invalid_login')
 
     def auth_empty_fields(self):
+        Logger.add_start_step(method='auth_empty_fields')
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
@@ -127,8 +135,10 @@ class LoginPage(Base):
         self.input_email('')  # inputting empty email
         self.input_password('')  # inputting empty password
         self.assertion_error_message_2()  # asserting that log in is unsuccessful
+        Logger.add_end_step(url=self.driver.get_current_url, method='auth_empty_fields')
 
     def log_out(self):
+        Logger.add_start_step(method='log_out')
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
@@ -140,3 +150,4 @@ class LoginPage(Base):
         self.click_log_out_button()  # user is logged out
         self.click_account_button()  # clicking account button to check log out button is not displayed
         self.assertion_login()  # asserting log out button is not displayed
+        Logger.add_end_step(url=self.driver.get_current_url, method='log_out')
