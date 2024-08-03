@@ -191,7 +191,7 @@ class ProductsPage(Base):
         self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
         self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
         self.click_go_to_checkout_button()  # clicking checkout button
-        Logger.add_end_step(url=self.driver.get_current_url, method='add_to_cart_product_1')
+        Logger.add_end_step(url=self.driver.current_url, method='add_to_cart_product_1')
 
     def add_to_cart_product_2(self):
         Logger.add_start_step(method='add_to_cart_product_2')
@@ -204,7 +204,7 @@ class ProductsPage(Base):
         self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
         self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
         self.click_go_to_checkout_button()  # clicking checkout button
-        Logger.add_end_step(url=self.driver.get_current_url, method='add_to_cart_product_2')
+        Logger.add_end_step(url=self.driver.current_url, method='add_to_cart_product_2')
 
     def add_to_cart_product_3(self):
         Logger.add_start_step(method='add_to_cart_product_3')
@@ -217,4 +217,4 @@ class ProductsPage(Base):
         self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
         self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
         self.click_go_to_checkout_button()  # clicking checkout button
-        Logger.add_end_step(url=self.driver.get_current_url, method='add_to_cart_product_3')
+        Logger.add_end_step(url=self.driver.current_url, method='add_to_cart_product_3')

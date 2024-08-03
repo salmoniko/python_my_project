@@ -142,7 +142,7 @@ class MainPage(Base):
         self.click_apply_filters_button()  # applying filters
         self.scroll_page(200)  # scrolling page down by 200 pixels
         self.click_product_1()  # clicking on product 1 to open its page
-        Logger.add_end_step(url=self.driver.get_current_url, method='select_product_1')
+        Logger.add_end_step(url=self.driver.current_url, method='select_product_1')
 
     def select_product_2(self):
         Logger.add_start_step(method='select_product_2')
@@ -154,7 +154,7 @@ class MainPage(Base):
         self.scroll_page(-200)  # scrolling page up by 200 pixels
         self.click_sort_by_high_to_low()  # choosing option from dropdown
         self.click_product_2()  # clicking on product 2 to open its page
-        Logger.add_end_step(url=self.driver.get_current_url, method='select_product_2')
+        Logger.add_end_step(url=self.driver.current_url, method='select_product_2')
 
     def select_product_3(self):
         Logger.add_start_step(method='select_product_3')
@@ -165,4 +165,4 @@ class MainPage(Base):
         self.click_white_color_category()  # selecting white color category
         self.click_apply_filters_button()  # applying filters
         self.click_product_3()  # clicking on product 3 to open its page
-        Logger.add_end_step(url=self.driver.get_current_url, method='select_product_3')
+        Logger.add_end_step(url=self.driver.current_url, method='select_product_3')

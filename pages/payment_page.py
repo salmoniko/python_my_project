@@ -89,4 +89,4 @@ class PaymentPage(Base):
         # self.input_expiry_date()  # не получается ввести данные в поля для оплаты картой
         # self.input_cvv_field()
         # self.input_name_card()
-        Logger.add_end_step(url=self.driver.get_current_url, method='final_payment')
+        Logger.add_end_step(url=self.driver.current_url, method='final_payment')

@@ -171,4 +171,4 @@ class CheckoutPage(Base):
         self.click_standard_delivery_radio()  # clicking on standard delivery radio
         self.click_continue_billing_button()  # clicking on continue billing button
         self.click_continue_payment_button()  # clicking on continue payment button
-        Logger.add_end_step(url=self.driver.get_current_url, method='fill_shipping_info')
+        Logger.add_end_step(url=self.driver.current_url, method='fill_shipping_info')
