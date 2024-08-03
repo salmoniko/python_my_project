@@ -10,8 +10,6 @@ from faker import Faker
 
 
 class CheckoutPage(Base):
-    url = 'https://www.hudsonstore.com/'
-
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
@@ -95,7 +93,7 @@ class CheckoutPage(Base):
                     EC.visibility_of_element_located((By.XPATH, self.shipping_address_title)))
             except TimeoutException:
                 print("Name field is not displayed")
-        time.sleep(1)  #  в данном месте оставила тайм слип, так как даже при учете использования исключений, данная ошибка иногда снова появляется
+        time.sleep(1)  # in this case time sleep was used as even with exceptions error happens
 
     def input_first_name(self):  # Input first name
         first_name = self.fake.first_name()

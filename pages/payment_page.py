@@ -10,8 +10,6 @@ from faker import Faker
 
 
 class PaymentPage(Base):
-    url = 'https://www.hudsonstore.com/'
-
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver

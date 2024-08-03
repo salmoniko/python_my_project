@@ -9,11 +9,6 @@ from base.base_class import Base
 
 
 class MainPage(Base):
-    url = 'https://www.hudsonstore.com/'
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
 
     # Locators
     women_category = '//span[@data-testid="Mw=="]'

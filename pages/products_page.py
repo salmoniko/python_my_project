@@ -7,11 +7,6 @@ from base.base_class import Base
 
 
 class ProductsPage(Base):
-    url = 'https://www.hudsonstore.com/'
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
 
     # Locators for filters
     product_color_1 = '//button[@data-testid="#000000"]'

@@ -10,10 +10,6 @@ from base.base_class import Base
 class LoginPage(Base):
     url = 'https://www.hudsonstore.com/'
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     # Locators
     account_button = '//button[@data-testid="accountIcon"]'  # locator for account button
     email_field = '//input[@id="email"]'  # locator for email field
@@ -97,7 +93,7 @@ class LoginPage(Base):
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
         self.click_account_button()  # clicking on account button to start log in
-        self.input_email('testmewe123dar@gmail.com')  # inputting email
+        self.input_email('123bug456report@gmail.com')  # inputting email
         self.input_password('Lightpass123')  # inputting password
         self.click_sign_in_button()  # clicking sign in button to confirm log in
         self.click_account_button()  # clicking on my profile button to see log out button is displayed
@@ -108,7 +104,7 @@ class LoginPage(Base):
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
         self.click_account_button()  # clicking on account button to start log in
-        self.input_email('testmewe123dar@gmail.com')  # inputting email
+        self.input_email('123bug456report@gmail.com')  # inputting email
         self.input_password('WrongPassword123')  # inputting wrong password
         self.click_sign_in_button()  # clicking sign in button to confirm log in
         self.assertion_error_message_1()  # asserting that log in is unsuccessful
@@ -137,7 +133,7 @@ class LoginPage(Base):
         self.driver.maximize_window()
         self.get_current_url()  # checking current URL
         self.click_account_button()  # clicking on account button to start log in
-        self.input_email('testmewe123dar@gmail.com')  # inputting email
+        self.input_email('123bug456report@gmail.com')  # inputting email
         self.input_password('Lightpass123')  # inputting password
         self.click_sign_in_button()  # clicking sign in button to confirm log in
         self.click_account_button()  # clicking on my profile button to see log out button is displayed

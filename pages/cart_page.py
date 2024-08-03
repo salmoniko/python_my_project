@@ -8,11 +8,6 @@ from base.base_class import Base
 
 
 class CartPage(Base):
-    url = 'https://www.hudsonstore.com/'
-
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
 
     # Locators
     close_cart_button = '//div[@class="cursor-pointer"]'
