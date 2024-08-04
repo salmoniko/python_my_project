@@ -82,8 +82,4 @@ class PaymentPage(Base):
         self.click_credit_card_radio()  # choosing payment by credit card
         self.scroll_page(200)  # scrolling page down by 200 pixels
         self.get_screenshot()  # saving screenshot of final page
-        # self.input_card_number()  # возможно по той причине, что данный сайт чей-то прод - с помощью этих методов
-        # self.input_expiry_date()  # не получается ввести данные в поля для оплаты картой
-        # self.input_cvv_field()
-        # self.input_name_card()
         # Logger.add_end_step(url=self.driver.current_url, method='final_payment')
