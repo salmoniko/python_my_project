@@ -1,6 +1,3 @@
-import time
-
-from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
@@ -133,7 +130,7 @@ class MainPage(Base):
     # Methods
 
     def select_product_1(self):
-        Logger.add_start_step(method='select_product_1')
+        # Logger.add_start_step(method='select_product_1')
         self.get_current_url()
         self.click_women_category()  # clicking on women category filter
         self.click_price_check_box_100_150()  # selecting price 100-150 checkbox
@@ -142,10 +139,10 @@ class MainPage(Base):
         self.click_apply_filters_button()  # applying filters
         self.scroll_page(200)  # scrolling page down by 200 pixels
         self.click_product_1()  # clicking on product 1 to open its page
-        Logger.add_end_step(url=self.driver.current_url, method='select_product_1')
+        # Logger.add_end_step(url=self.driver.current_url, method='select_product_1')
 
     def select_product_2(self):
-        Logger.add_start_step(method='select_product_2')
+        # Logger.add_start_step(method='select_product_2')
         self.get_current_url()
         self.click_men_category()  # clicking on men category filter
         self.scroll_page(200)  # scrolling page down by 200 pixels
@@ -154,10 +151,10 @@ class MainPage(Base):
         self.scroll_page(-200)  # scrolling page up by 200 pixels
         self.click_sort_by_high_to_low()  # choosing option from dropdown
         self.click_product_2()  # clicking on product 2 to open its page
-        Logger.add_end_step(url=self.driver.current_url, method='select_product_2')
+        # Logger.add_end_step(url=self.driver.current_url, method='select_product_2')
 
     def select_product_3(self):
-        Logger.add_start_step(method='select_product_3')
+        # Logger.add_start_step(method='select_product_3')
         self.get_current_url()
         self.click_kids_category()  # clicking on kids category filter
         self.click_size_6_checkbox()  # selecting size 6 checkbox
@@ -165,4 +162,4 @@ class MainPage(Base):
         self.click_white_color_category()  # selecting white color category
         self.click_apply_filters_button()  # applying filters
         self.click_product_3()  # clicking on product 3 to open its page
-        Logger.add_end_step(url=self.driver.current_url, method='select_product_3')
+        # Logger.add_end_step(url=self.driver.current_url, method='select_product_3')

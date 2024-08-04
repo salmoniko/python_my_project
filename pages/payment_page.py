@@ -1,7 +1,4 @@
-import time
-
 from selenium.common import TimeoutException
-from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -80,7 +77,7 @@ class PaymentPage(Base):
     # Methods
 
     def final_payment(self):
-        Logger.add_start_step(method='final_payment')
+        # Logger.add_start_step(method='final_payment')
         self.get_current_url()
         self.click_credit_card_radio()  # choosing payment by credit card
         self.scroll_page(200)  # scrolling page down by 200 pixels
@@ -89,4 +86,4 @@ class PaymentPage(Base):
         # self.input_expiry_date()  # не получается ввести данные в поля для оплаты картой
         # self.input_cvv_field()
         # self.input_name_card()
-        Logger.add_end_step(url=self.driver.current_url, method='final_payment')
+        # Logger.add_end_step(url=self.driver.current_url, method='final_payment')
