@@ -1,3 +1,4 @@
+import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -11,6 +12,7 @@ from pages.payment_page import PaymentPage
 from pages.products_page import ProductsPage
 
 
+@allure.description('Test buy product 2')
 def test_buy_product_2(set_group, set_up):
     options = Options()
     service = Service('C:\\chromedriver\\chromedriver.exe')

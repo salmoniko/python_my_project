@@ -1,3 +1,4 @@
+import allure
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -77,9 +78,8 @@ class PaymentPage(Base):
     # Methods
 
     def final_payment(self):
-        # Logger.add_start_step(method='final_payment')
-        self.get_current_url()
-        self.click_credit_card_radio()  # choosing payment by credit card
-        self.scroll_page(200)  # scrolling page down by 200 pixels
-        self.get_screenshot()  # saving screenshot of final page
-        # Logger.add_end_step(url=self.driver.current_url, method='final_payment')
+        with allure.step('Final payment'):
+            self.get_current_url()
+            self.click_credit_card_radio()  # choosing payment by credit card
+            self.scroll_page(200)  # scrolling page down by 200 pixels
+            self.get_screenshot()  # saving screenshot of final page

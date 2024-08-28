@@ -1,9 +1,9 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
-from utilities.logger import Logger
 
 
 class MainPage(Base):
@@ -19,7 +19,7 @@ class MainPage(Base):
     white_color_category = '//button[@data-testid="#ffffff"]'
     apply_filters_button = '//button[@data-testid="apply-filters"]'
     not_on_sale_radio_button = '(//label[@class="sf-radio__container"])[6]'
-    product_1 = '//img[@alt="Tommy Hilfiger Distinct Camera Bag"]'
+    product_1 = '//img[@alt="Tommy Hilfiger Varsity Regular Pant"]'
     product_name = '//h1[@class="sf-heading__title h2 text-left"]'
     product_2 = '//img[@alt="Calvin Klein Jeans Suede Trainers"]'
     product_3 = '//img[@alt="Nike Kids Air Force 1 Lv8 3"]'
@@ -130,36 +130,33 @@ class MainPage(Base):
     # Methods
 
     def select_product_1(self):
-        # Logger.add_start_step(method='select_product_1')
-        self.get_current_url()
-        self.click_women_category()  # clicking on women category filter
-        self.click_price_check_box_100_150()  # selecting price 100-150 checkbox
-        self.scroll_page(900)  # scrolling page down by 200 pixels
-        self.click_not_on_sale_radio_button()  # selecting not on sale category
-        self.click_apply_filters_button()  # applying filters
-        self.scroll_page(200)  # scrolling page down by 200 pixels
-        self.click_product_1()  # clicking on product 1 to open its page
-        # Logger.add_end_step(url=self.driver.current_url, method='select_product_1')
+        with allure.step('Select product 1'):
+            self.get_current_url()
+            self.click_women_category()  # clicking on women category filter
+            self.click_price_check_box_100_150()  # selecting price 100-150 checkbox
+            self.scroll_page(900)  # scrolling page down by 200 pixels
+            self.click_not_on_sale_radio_button()  # selecting not on sale category
+            self.click_apply_filters_button()  # applying filters
+            self.scroll_page(200)  # scrolling page down by 200 pixels
+            self.click_product_1()  # clicking on product 1 to open its page
 
     def select_product_2(self):
-        # Logger.add_start_step(method='select_product_2')
-        self.get_current_url()
-        self.click_men_category()  # clicking on men category filter
-        self.scroll_page(200)  # scrolling page down by 200 pixels
-        self.click_ck_category()  # selecting CK category
-        self.click_apply_filters_button()  # applying filters
-        self.scroll_page(-200)  # scrolling page up by 200 pixels
-        self.click_sort_by_high_to_low()  # choosing option from dropdown
-        self.click_product_2()  # clicking on product 2 to open its page
-        # Logger.add_end_step(url=self.driver.current_url, method='select_product_2')
+        with allure.step('Select product 2'):
+            self.get_current_url()
+            self.click_men_category()  # clicking on men category filter
+            self.scroll_page(200)  # scrolling page down by 200 pixels
+            self.click_ck_category()  # selecting CK category
+            self.click_apply_filters_button()  # applying filters
+            self.scroll_page(-200)  # scrolling page up by 200 pixels
+            self.click_sort_by_high_to_low()  # choosing option from dropdown
+            self.click_product_2()  # clicking on product 2 to open its page
 
     def select_product_3(self):
-        # Logger.add_start_step(method='select_product_3')
-        self.get_current_url()
-        self.click_kids_category()  # clicking on kids category filter
-        self.click_size_6_checkbox()  # selecting size 6 checkbox
-        self.scroll_page(400)  # scrolling page down by 200 pixels
-        self.click_white_color_category()  # selecting white color category
-        self.click_apply_filters_button()  # applying filters
-        self.click_product_3()  # clicking on product 3 to open its page
-        # Logger.add_end_step(url=self.driver.current_url, method='select_product_3')
+        with allure.step('Select product 3'):
+            self.get_current_url()
+            self.click_kids_category()  # clicking on kids category filter
+            self.click_size_6_checkbox()  # selecting size 6 checkbox
+            self.scroll_page(400)  # scrolling page down by 200 pixels
+            self.click_white_color_category()  # selecting white color category
+            self.click_apply_filters_button()  # applying filters
+            self.click_product_3()  # clicking on product 3 to open its page

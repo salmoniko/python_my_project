@@ -1,5 +1,6 @@
 import time
 
+import allure
 from selenium.common import TimeoutException, StaleElementReferenceException
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
@@ -7,8 +8,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
 from faker import Faker
-
-from utilities.logger import Logger
 
 
 class CheckoutPage(Base):
@@ -156,19 +155,18 @@ class CheckoutPage(Base):
     # Methods
 
     def fill_shipping_info(self):
-        # Logger.add_start_step(method='fill_shipping_info')
-        self.get_current_url()
-        self.click_shipping_button()  # clicking on shipping button to move to next screen
-        self.input_first_name()  # inputting random first name
-        self.input_last_name()  # inputting random last name
-        self.input_street_name()  # # inputting random street name
-        self.input_house_number()  # inputting random house number
-        self.input_city_name()  # inputting city name
-        self.input_zip_code()  # inputting random zip code
-        self.input_phone_number()  # inputting phone number
-        self.click_shipping_method()  # clicking on shipping method button
-        self.scroll_page(200)  # scrolling page down by 200 pixels
-        self.click_standard_delivery_radio()  # clicking on standard delivery radio
-        self.click_continue_billing_button()  # clicking on continue billing button
-        self.click_continue_payment_button()  # clicking on continue payment button
-        # Logger.add_end_step(url=self.driver.current_url, method='fill_shipping_info')
+        with allure.step('Fill shipping info'):
+            self.get_current_url()
+            self.click_shipping_button()  # clicking on shipping button to move to next screen
+            self.input_first_name()  # inputting random first name
+            self.input_last_name()  # inputting random last name
+            self.input_street_name()  # # inputting random street name
+            self.input_house_number()  # inputting random house number
+            self.input_city_name()  # inputting city name
+            self.input_zip_code()  # inputting random zip code
+            self.input_phone_number()  # inputting phone number
+            self.click_shipping_method()  # clicking on shipping method button
+            self.scroll_page(200)  # scrolling page down by 200 pixels
+            self.click_standard_delivery_radio()  # clicking on standard delivery radio
+            self.click_continue_billing_button()  # clicking on continue billing button
+            self.click_continue_payment_button()  # clicking on continue payment button

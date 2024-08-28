@@ -1,17 +1,17 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
-from utilities.logger import Logger
 
 
 class ProductsPage(Base):
 
     # Locators for filters
-    product_color_1 = '//button[@data-testid="#000000"]'
+    product_color_1 = '//span[@custion-id="Navy Blue"]'
     product_color_2 = '//img[@custion-id="Beige"]'
     product_color_3 = '//button[@data-testid="#ffffff"]'
-    product_size_1 = '//button[@color="OS"]'
+    product_size_1 = '//button[@color="S"]'
     product_size_2 = '//button[@color="43"]'
     product_size_3 = '//button[@color="6"]'
     add_to_cart_button = '//button[@class="sf-add-to-cart__button rounded-md sf-button"]'
@@ -179,40 +179,37 @@ class ProductsPage(Base):
     # Methods
 
     def add_to_cart_product_1(self):
-        # Logger.add_start_step(method='add_to_cart_product_1')
-        self.get_current_url()
-        self.click_product_color_1()  # choosing color of product
-        self.click_product_size_1()  # selecting size of product
-        main_name, main_price = self.extract_product_1_details()  # extract details from the main page
-        self.click_add_to_cart_button()  # clicking on button to add product to cart
-        cart_name, cart_price = self.extract_cart_product_1_details()  # extract details from the cart
-        self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
-        self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
-        self.click_go_to_checkout_button()  # clicking checkout button
-        # Logger.add_end_step(url=self.driver.current_url, method='add_to_cart_product_1')
+        with allure.step('Add to cart product 1'):
+            self.get_current_url()
+            self.click_product_color_1()  # choosing color of product
+            self.click_product_size_1()  # selecting size of product
+            main_name, main_price = self.extract_product_1_details()  # extract details from the main page
+            self.click_add_to_cart_button()  # clicking on button to add product to cart
+            cart_name, cart_price = self.extract_cart_product_1_details()  # extract details from the cart
+            self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
+            self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
+            self.click_go_to_checkout_button()  # clicking checkout button
 
     def add_to_cart_product_2(self):
-        # Logger.add_start_step(method='add_to_cart_product_2')
-        self.get_current_url()
-        self.click_product_color_2()  # choosing color of product
-        self.click_product_size_2()  # selecting size of product
-        main_name, main_price = self.extract_product_2_details()  # extract details from the main page
-        self.click_add_to_cart_button()  # clicking on button to add product to cart
-        cart_name, cart_price = self.extract_cart_product_2_details()  # extract details from the cart
-        self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
-        self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
-        self.click_go_to_checkout_button()  # clicking checkout button
-        # Logger.add_end_step(url=self.driver.current_url, method='add_to_cart_product_2')
+        with allure.step('Add to cart product 2'):
+            self.get_current_url()
+            self.click_product_color_2()  # choosing color of product
+            self.click_product_size_2()  # selecting size of product
+            main_name, main_price = self.extract_product_2_details()  # extract details from the main page
+            self.click_add_to_cart_button()  # clicking on button to add product to cart
+            cart_name, cart_price = self.extract_cart_product_2_details()  # extract details from the cart
+            self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
+            self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
+            self.click_go_to_checkout_button()  # clicking checkout button
 
     def add_to_cart_product_3(self):
-        # Logger.add_start_step(method='add_to_cart_product_3')
-        self.get_current_url()
-        self.click_product_color_3()  # choosing color of product
-        self.click_product_size_3()  # selecting size of product
-        main_name, main_price = self.extract_product_3_details()  # extract details from the main page
-        self.click_add_to_cart_button()  # clicking on button to add product to cart
-        cart_name, cart_price = self.extract_cart_product_3_details()  # extract details from the cart
-        self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
-        self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
-        self.click_go_to_checkout_button()  # clicking checkout button
-        # Logger.add_end_step(url=self.driver.current_url, method='add_to_cart_product_3')
+        with allure.step('Add to cart product 3'):
+            self.get_current_url()
+            self.click_product_color_3()  # choosing color of product
+            self.click_product_size_3()  # selecting size of product
+            main_name, main_price = self.extract_product_3_details()  # extract details from the main page
+            self.click_add_to_cart_button()  # clicking on button to add product to cart
+            cart_name, cart_price = self.extract_cart_product_3_details()  # extract details from the cart
+            self.compare_product_details(main_name, main_price, cart_name, cart_price)  # compare the details
+            self.assert_word(self.get_cart_text(), 'My Cart')  # asserting by word that cart is opened
+            self.click_go_to_checkout_button()  # clicking checkout button

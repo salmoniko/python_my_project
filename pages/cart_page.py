@@ -1,9 +1,9 @@
+import allure
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
-from utilities.logger import Logger
 
 
 class CartPage(Base):
@@ -46,10 +46,9 @@ class CartPage(Base):
     # Methods
 
     def clean_cart(self):
-        # Logger.add_start_step(method='clean_cart')
-        self.get_current_url()
-        self.click_cart_button()  # opening cart
-        self.click_clean_cart_button()  # deleting products from cart
-        self.assert_word(self.get_empty_cart_text(), 'Your cart is empty')  # checking if cart is empty
-        self.click_close_cart_button()  # clicking on close cart button
-        # Logger.add_end_step(url=self.driver.current_url, method='clean_cart')
+        with allure.step('Clean cart'):
+            self.get_current_url()
+            self.click_cart_button()  # opening cart
+            self.click_clean_cart_button()  # deleting products from cart
+            self.assert_word(self.get_empty_cart_text(), 'Your cart is empty')  # checking if cart is empty
+            self.click_close_cart_button()  # clicking on close cart button
